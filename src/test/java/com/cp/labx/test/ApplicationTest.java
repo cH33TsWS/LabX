@@ -47,6 +47,6 @@ public class ApplicationTest {
 		List<Patient> patients = patientRepository.findByFirstName("Bruce");
 		if(patients != null && patients.size() >0) {
 			System.out.println(patients.get(0).toString());
-		}
+		} 
 	}
 }
