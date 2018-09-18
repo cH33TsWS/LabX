@@ -33,6 +33,15 @@ public class User implements UserDetails {
 	
 	@Column(name = "enabled", nullable = false)
 	private boolean enabled;
+	
+	@Column(name = "first_name")
+	private String firstName;
+	
+	@Column(name = "last_name")
+	private String lastName;
+	
+	@Column(name = "middle_name")
+	private String middleName;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -71,5 +80,29 @@ public class User implements UserDetails {
 	@Override
 	public String getUsername() {
 		return username;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
 	}
 }

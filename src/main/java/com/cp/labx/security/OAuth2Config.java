@@ -14,11 +14,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 
+import com.cp.labx.utils.ApplicationConstants;
+
 @Configuration
 @EnableAuthorizationServer
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 	
-	public static final String RESOURCE_ID = "api";
+	//public static final String RESOURCE_ID = "api";
 
 	@Autowired
 	@Qualifier("userDetailsService")
@@ -44,6 +46,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory().withClient("chandresh").secret("password").accessTokenValiditySeconds(expiration)
-				.scopes("read", "write").authorizedGrantTypes("password", "refresh_token").resourceIds(RESOURCE_ID);
+				.scopes("read", "write").authorizedGrantTypes("password", "refresh_token").resourceIds(ApplicationConstants.RESOURCE_ID);
 	}
 }

@@ -6,6 +6,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 
+import com.cp.labx.utils.ApplicationConstants;
+
 @Configuration
 @EnableResourceServer
 public class ResourceServer extends ResourceServerConfigurerAdapter{
@@ -22,7 +24,7 @@ public class ResourceServer extends ResourceServerConfigurerAdapter{
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-         resources.resourceId(OAuth2Config.RESOURCE_ID);
+         resources.resourceId(ApplicationConstants.RESOURCE_ID);
     }
 
 }
