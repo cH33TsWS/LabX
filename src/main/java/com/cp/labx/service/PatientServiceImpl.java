@@ -44,5 +44,11 @@ public class PatientServiceImpl implements PatientService {
 		// TODO Auto-generated method stub
 		return patientRepository.findByLastName(lastName);
 	}
+	
+	@Override
+	public boolean isExists(Patient patient) throws Exception {
+		return getPatient(patient.getId())!=null;
+		
+	}
 
 }

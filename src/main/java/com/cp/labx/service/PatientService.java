@@ -15,5 +15,7 @@ public interface PatientService {
 	public List<Patient> getByFirstName(String firstName)throws Exception;
 	
 	public List<Patient> getByLastName(String lastName)throws Exception;
+	
+	public boolean isExists(Patient patient) throws Exception;
 
 }

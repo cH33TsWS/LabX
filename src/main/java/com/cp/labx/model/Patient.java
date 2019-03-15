@@ -48,10 +48,10 @@ public class Patient implements Serializable {
 	private Date createdDate;
 
 	@Column(name="created_by", nullable=true)
-	private String createdBy;
+	private Long createdBy;
 
 	@Column(name="modified_by")
-	private String modifiedBy;
+	private Long modifiedBy;
 	
 	@Column(name="modified_date")
 	@UpdateTimestamp
@@ -113,19 +113,19 @@ public class Patient implements Serializable {
 		this.createdDate = createdDate;
 	}
 
-	public String getCreatedBy() {
+	public Long getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(String createdBy) {
+	public void setCreatedBy(Long createdBy) {
 		this.createdBy = createdBy;
 	}
 
-	public String getModifiedBy() {
+	public Long getModifiedBy() {
 		return modifiedBy;
 	}
 
-	public void setModifiedBy(String modifiedBy) {
+	public void setModifiedBy(Long modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
 

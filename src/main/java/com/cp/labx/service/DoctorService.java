@@ -15,5 +15,7 @@ public interface DoctorService {
 	public List<Doctor> getByLastName(String lastName) throws Exception;
 	
 	public void saveDoctor(Doctor doctor) throws Exception;
+	
+	public boolean isExists(Doctor doctor) throws Exception;
 
 }

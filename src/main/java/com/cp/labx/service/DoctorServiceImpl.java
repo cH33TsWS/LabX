@@ -3,6 +3,7 @@ package com.cp.labx.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.cp.labx.dao.DoctorRepository;
@@ -10,6 +11,9 @@ import com.cp.labx.model.Doctor;
 
 @Service
 public class DoctorServiceImpl implements DoctorService {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
 	DoctorRepository doctorRepository;
@@ -42,6 +46,17 @@ public class DoctorServiceImpl implements DoctorService {
 	public void saveDoctor(Doctor doctor) throws Exception {
 		// TODO Auto-generated method stub
 		doctorRepository.save(doctor);
+	}
+
+	@Override
+	public boolean isExists(Doctor doctor) throws Exception {
+		// TODO Auto-generated method stub
+		String searchQuery="SELECT * FROM doctors WHERE first_name = ? AND last_name = ? and specialization = ?";
+		List<Doctor> d = (List<Doctor>) jdbcTemplate.queryForList(searchQuery, new Object[] { doctor.getFirstName(),doctor.getLastName(), doctor.getSpecialization() }, Doctor.class);
+		if(d!=null && d.size() > 0) {
+			return true;
+		}
+		return false;
 	}
 
 }
